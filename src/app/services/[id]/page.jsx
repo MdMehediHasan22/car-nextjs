@@ -1,6 +1,7 @@
  import dbConnect, { collectionNamesObj } from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
  export default async function ServiceDetailsPage({params}){
@@ -33,7 +34,20 @@ import React from "react";
                     height={280}
                     alt={data.title}
                     />
+                    <h1 className="font-bold text-3xl">{data.title}</h1>
+                    <p className="text-justify">{data?.description}</p>
                 </div>
+                 {/* Right Side */}
+        <div className="col-span-3 space-y-4">
+          <Link href={`/checkout/${data._id}`}>
+            <button className="w-full text-white h-10 bg-orange-500">
+              Checkout
+            </button>
+          </Link>
+          <p className="text-center text-xl font-bold">
+            Price: $ {data?.price}
+          </p>
+        </div>
             </section>
             <p>{p.id}</p>
             <p>{JSON.stringify(data)}</p>
