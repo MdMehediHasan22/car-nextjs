@@ -23,6 +23,18 @@ import React from "react";
                 </div>
                 </figure>
             </section>
+            <section className="container mx-auto grid grid-cols-12 gap-4 mt-4">
+                {/* {Left side} */}
+                <div className="col-span-9 space-y-4">
+                    <Image
+                    className="w-full"
+                    src={data?.img}
+                    width={400}
+                    height={280}
+                    alt={data.title}
+                    />
+                </div>
+            </section>
             <p>{p.id}</p>
             <p>{JSON.stringify(data)}</p>
         </div>
