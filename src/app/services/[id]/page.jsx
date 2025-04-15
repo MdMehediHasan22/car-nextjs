@@ -9,17 +9,18 @@ import React from "react";
     const servicesCollection = dbConnect(collectionNamesObj.servicesCollection);
     const data = await servicesCollection.findOne({_id: new ObjectId(p.id)});
     return (
-        <div>
+        <div className="container mx-auto">
             <section className="flex justify-center">
-                <figure className=" relative">
-                <Image src={"/assets/images/checkout/checkout.png"}
+                <figure className=" relative ">
+                <Image 
+                src={"/assets/images/checkout/checkout.png"}
                 width={1137}
                 height={300}
                 alt={"banner"}
                 />
                 <div className="transparent-layer overlay-bg absolute w-full h-full border-2 border-red-400 top-0">
                   <div className="w-full h-full font-bold text-2xl flex items-center ps-16 ">
-                  <h1 className="text-white">Service Details</h1>
+                  <h1 className="text-white">{data.title}</h1>
                   </div>
                 </div>
                 </figure>
@@ -48,9 +49,7 @@ import React from "react";
             Price: $ {data?.price}
           </p>
         </div>
-            </section>
-            <p>{p.id}</p>
-            <p>{JSON.stringify(data)}</p>
+        </section>
         </div>
     );
  }

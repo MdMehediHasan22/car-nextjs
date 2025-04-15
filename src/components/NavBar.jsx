@@ -25,7 +25,7 @@ export default function NavBar(){
         )
     }
     return(
-        <div>
+        <div className="container mx-auto">
            <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
@@ -47,6 +47,7 @@ export default function NavBar(){
       {navMenu()}
     </ul>
   </div>
+
   <div className="navbar-end">
     <a className="btn btn-outline">Appointment</a>
   </div>
