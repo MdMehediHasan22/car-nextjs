@@ -1,11 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaArrowRight } from "@react-icons/all-files/fa/FaArrowRight";
 
 export default async function ServicesSection(){
     //const res = await fetch("/services.json");
     const data =[
         {
-            "_id": "635a0c0b64a6d231228942ae",
+            
             "service_id": "04",
             "title": "Engine Oil Change",
             "img": "https://i.ibb.co/T2cpBd5/888.jpg",
@@ -31,7 +33,7 @@ export default async function ServicesSection(){
             ]
         },
         {
-            "_id": "635a0c0b64a6d231228942af",
+            
             "service_id": "05",
             "title": "Battery Charge",
             "img": "https://i.ibb.co/ydCbDN3/5555.jpg",
@@ -57,7 +59,7 @@ export default async function ServicesSection(){
             ]
         },
         {
-            "_id": "635b591a1dafe382a9da8c96",
+            
             "service_id": "01",
             "title": "Full car Repair",
             "img": "https://i.ibb.co/R6Z2nFM/55.jpg",
@@ -83,7 +85,7 @@ export default async function ServicesSection(){
             ]
         },
         {
-            "_id": "635b5afc1dafe382a9da8c98",
+            
             "service_id": "02",
             "title": "Engine Repair",
             "img": "https://i.ibb.co/5MvmD2g/88.jpg",
@@ -109,7 +111,7 @@ export default async function ServicesSection(){
             ]
         },
         {
-            "_id": "635b5b691dafe382a9da8c99",
+            
             "service_id": "03",
             "title": "Automatic Services",
             "img": "https://i.ibb.co/wh7t3N3/555.jpg",
@@ -135,7 +137,7 @@ export default async function ServicesSection(){
             ]
         },
         {
-            "_id": "635b5ba51dafe382a9da8c9a",
+            
             "service_id": "06",
             "title": "Electrical System",
             "img": "https://i.ibb.co/KzCG8qr/8888.jpg",
@@ -164,9 +166,36 @@ export default async function ServicesSection(){
     
     return (<div className="grid grid-cols-12">
         {data.map((item) => {
-            return(<div className="col-span-4" key = {item._id}>
-                <Image src = {item.img} width = {314} height = {208} />
-                </div>);
+            return(
+                <div 
+                className="col-span-12 md:col-span-6 lg:col-span-4 p-4 h-full border border-gray-200" 
+                key={item._id}>
+                   <figure className="w-full h-3/4 flex justify-center items-center">
+                      <Image
+                        className="w-full h-full object-fit"
+                        src={item.img}
+                        width={314}
+                        height={108}
+                        alt={item.title}
+                      />
+                    </figure>
+                    <div className="flex justify-between items-center mt-4">
+                        <div>
+                            <h2 className="font-bold text-xl">{item.title}</h2>
+                            <p className="font-bold text-xl text-orange-500">Price : ${item.price}</p>
+                        </div>
+                        <div>
+                        <Link
+                          href={`/services/${item._id}`}
+                          className="text-orange-500"
+                        >
+                          <FaArrowRight />
+                        </Link>
+                      </div>
+        
+                    </div>
+                </div>
+                );
         })}
     </div>);
 }
