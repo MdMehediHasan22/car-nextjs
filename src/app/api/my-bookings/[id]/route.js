@@ -47,9 +47,9 @@ export const PATCH = async (req, { params }) => {
         const option = {
             upsert: true
         }
-        const updateReponse = await bookingCollection.updateOne(query, filter, option)
+        const updateResponse = await bookingCollection.updateOne(query, filter, option)
         revalidatePath("/my-bookings")
-        return NextResponse.json(updateReponse)
+        return NextResponse.json(updateResponse)
     }
     else {
         return NextResponse.json({ message: "Forbidden Update action" }, {
