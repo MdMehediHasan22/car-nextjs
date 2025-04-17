@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
-    "bcryptjs": "^3.0.2",
+    "bcrypt": "^5.1.1",
     "mongodb": "^6.15.0",
     "next": "^15.3.0",
     "next-auth": "^4.24.11",
